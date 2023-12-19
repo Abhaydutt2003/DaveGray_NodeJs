@@ -1,0 +1,12 @@
+20231219	06:07:28	187b33bd-f096-4aa2-b83d-434d5a55d679	GET	undefined	/
+20231219	06:07:28	15f51620-03cf-4b73-9274-a47898464a92	GET	undefined	/css/style.css
+20231219	06:13:20	565f8dd7-5f8c-4e21-8ea2-067e821a8b18	GET	undefined	/
+20231219	06:13:20	d28a5a5f-a5c2-4154-b586-5cf2223bdff2	GET	undefined	/css/style.css
+20231219	06:16:28	d1379960-909d-48f5-b13f-1d2294a04ec3	OPTIONS	https://www.google.com	/
+20231219	06:16:28	8dae9d07-4191-434a-a308-901ffaa7b9c0	GET	https://www.google.com	/
+20231219	06:20:15	d546c015-0a49-4c57-883f-957fde7566e8	OPTIONS	https://www.google.com	/
+20231219	06:20:15	2b20af0d-5098-4008-8963-3e6ce9bc1a27	GET	https://www.google.com	/
+20231219	06:23:50	0301f086-83f6-4be4-80eb-2efe08fa3fc0	GET	https://www.google.com	/
+20231219	06:50:52	3de1677d-01c3-46db-9346-b4cb71f04287	GET	https://www.google.com	/
+20231219	06:51:22	bbce8da6-4183-4bb1-bf7f-26c3a7b614fe	GET	undefined	/
+20231219	06:51:22	87cc09eb-bfa4-4489-bfa7-8b43a7da5fa3	GET	undefined	/css/style.css
