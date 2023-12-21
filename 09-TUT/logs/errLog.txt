@@ -5,3 +5,5 @@
 20231220	19:25:43	51f81f79-344d-437b-86da-3edf671b29cc	Error:Not allowed by CORS
 20231220	19:25:46	e5b651b4-44f2-4ca7-b4fc-c67d95c59a75	Error:Not allowed by CORS
 20231220	19:25:46	83f10126-6d0b-4944-8125-48c33a895bf4	Error:Not allowed by CORS
+20231221	05:11:31	355e8702-dca9-46e3-98a5-eca543fcc6b2	Error:ENOENT: no such file or directory, stat '/Users/abhaydutt/Desktop/DaveGray_NodeJs/08-TUT/routes/views/index.html'
+20231221	10:21:16	c9ac1894-c8fc-4fb0-b5fd-4da5e196370f	TypeError:console.logparseInt is not a function

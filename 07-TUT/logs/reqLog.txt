@@ -10,3 +10,7 @@
 20231219	06:50:52	3de1677d-01c3-46db-9346-b4cb71f04287	GET	https://www.google.com	/
 20231219	06:51:22	bbce8da6-4183-4bb1-bf7f-26c3a7b614fe	GET	undefined	/
 20231219	06:51:22	87cc09eb-bfa4-4489-bfa7-8b43a7da5fa3	GET	undefined	/css/style.css
+20231220	19:26:03	80c0485e-0474-41f4-aedf-def5490548f4	GET	undefined	/
+20231220	19:26:03	f0879b61-aed4-4b1e-97dd-b68c422bb018	GET	undefined	/css/style.css
+20231220	19:26:03	cf1f4485-d87f-464b-b903-c9206e12abfa	GET	undefined	/favicon.ico
+20231220	19:26:08	9a5d5c29-aaf2-4825-a92f-9eb2495eb012	GET	undefined	/css/style.css
