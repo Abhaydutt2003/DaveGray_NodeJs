@@ -5,6 +5,8 @@ const cors = require("cors");
 const corsOptions = require('./config/corsOptions');
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
+const verifyJWT = require('./middleware/verifyJWT');
+const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 3500;
 
 //middlewares
@@ -24,13 +26,20 @@ app.use(express.json());
 //middleware to serve the static files
 app.use('/',express.static(path.join(__dirname, "/public")));
 app.use('/subdir',express.static(path.join(__dirname, "/public")));
-
+ 
+app.use(cookieParser());
 //routes
 app.use("/subdir", require("./routes/subdir"));
 app.use('/',require('./routes/root'));
-app.use('/employees',require('./routes/api/employees'));
 app.use('/register',require('./routes/register'));
 app.use('/auth',require('./routes/auth'));
+app.use('/refresh',require('./routes/refresh'));
+app.use('/logout',require('./routes/logout'));
+
+
+//waterfall effect , these 2 middlewares will not work for the above routes..
+app.use(verifyJWT);
+app.use('/employees',require('./routes/api/employees'));
 
 //route handling
 

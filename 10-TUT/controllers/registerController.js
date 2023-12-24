@@ -23,20 +23,21 @@ const handleNewUser = async (req, res) => {
   //conflict
   if (duplicate) return res.sendStatus(409);
 
-  try {
-    //encrpyt the password
-    const hashedPwd = await bcrypt.hash(pwd, 10);
-    const newUser = { username: user, password: hashedPwd };
+
+  //generete the newUser
+  bcrypt.hash(pwd, 10, async (err, hash) => {
+    if (err) {
+      return res.status(500).json({ message: err.message });
+    }
+    newUser = { username: user, password: hash };
     usersDb.setUsers([...usersDb.users, newUser]);
     await fsPromises.writeFile(
       path.join(__dirname, "..", "models", "users.json"),
       JSON.stringify(usersDb.users)
     );
-    console.log(usersDb.users);
-    return res.status(201).json({ message: `new user created ${user}` });
-  } catch (error) {
-    return res.status(500).json({ message: error.message });
-  }
+    return res.status(201).json({ message: `New user created with ${user}` });
+  });
+  
 };
 
 module.exports = { handleNewUser };

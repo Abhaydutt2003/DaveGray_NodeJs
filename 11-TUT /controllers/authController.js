@@ -1,11 +1,11 @@
 //emulating a db
 const usersDb = {
-  users: require("../models/users.json"),
-  setUsers: function (data) {
+  users:require("../models/users.json"),
+  setUsers:function(data){
     this.users = data;
     return;
-  },
-};
+  }
+}
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -15,6 +15,7 @@ const path = require("path");
 const fsPromises = require("fs").promises;
 
 const handleLogin = async (req, res) => {
+  console.log('Hello from login');
   const { user, pwd } = req.body;
   if (!user || !pwd) {
     return res
@@ -28,6 +29,7 @@ const handleLogin = async (req, res) => {
   if (!foundUser) return res.status(401).json({ message: "User not found" });
   //evaluate password
   const match = await bcrypt.compare(pwd, foundUser.password);
+
   if (match) {
     //create a jwt
     //we will not use the password as the payload , will hurt the security
