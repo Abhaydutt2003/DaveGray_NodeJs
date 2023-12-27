@@ -1,0 +1,14 @@
+20231219	07:10:53	9ec05c3f-7d32-44c1-9986-300c55d6954c	Error:Not allowed by CORS
+20231220	19:25:42	b97bde0f-bff6-4ee2-a808-ef80b0750339	Error:Not allowed by CORS
+20231220	19:25:42	a1c1e387-54f7-4db3-ba8b-b2b535a1083e	Error:Not allowed by CORS
+20231220	19:25:43	9a431976-cbae-4b09-8205-fc6a1f37866c	Error:Not allowed by CORS
+20231220	19:25:43	51f81f79-344d-437b-86da-3edf671b29cc	Error:Not allowed by CORS
+20231220	19:25:46	e5b651b4-44f2-4ca7-b4fc-c67d95c59a75	Error:Not allowed by CORS
+20231220	19:25:46	83f10126-6d0b-4944-8125-48c33a895bf4	Error:Not allowed by CORS
+20231221	05:11:31	355e8702-dca9-46e3-98a5-eca543fcc6b2	Error:ENOENT: no such file or directory, stat '/Users/abhaydutt/Desktop/DaveGray_NodeJs/08-TUT/routes/views/index.html'
+20231221	10:21:16	c9ac1894-c8fc-4fb0-b5fd-4da5e196370f	TypeError:console.logparseInt is not a function
+20231224	11:35:51	f1885b1d-bd5f-4b47-92d4-8b325fc71fdb	ReferenceError:req is not defined
+20231224	11:36:08	6f389560-ce80-45b3-bf03-08403837aabf	ReferenceError:resizeBy is not defined
+20231224	11:36:33	0edccc37-ae33-4051-9773-77b294f0057b	TypeError:res.sendStatus is not a function
+20231224	11:36:51	81cd41af-a135-40ed-8223-1bf6330a575b	TypeError:res.sendStatus is not a function
+20231224	11:39:55	a317da29-28ee-4193-90b1-1569fb30ca5c	TypeError:res.sendStatus is not a function
