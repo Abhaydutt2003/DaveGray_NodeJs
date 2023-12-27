@@ -17,10 +17,10 @@ app.use(cors(corsOptions));
 //custom middleware logger(will be used everwhere as a middleware)
 app.use(logger);
 
-//to parse form data in the url
+//used to parse the data in req.body, used for POST and PUT request
 app.use(express.urlencoded({ extended: false }));
 
-//middleware for json
+//middleware for recognizing the incoming request object as JSON object
 app.use(express.json());
 
 //middleware to serve the static files

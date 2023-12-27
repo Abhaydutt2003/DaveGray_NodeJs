@@ -12,3 +12,4 @@
 20231224	11:36:33	0edccc37-ae33-4051-9773-77b294f0057b	TypeError:res.sendStatus is not a function
 20231224	11:36:51	81cd41af-a135-40ed-8223-1bf6330a575b	TypeError:res.sendStatus is not a function
 20231224	11:39:55	a317da29-28ee-4193-90b1-1569fb30ca5c	TypeError:res.sendStatus is not a function
+20231227	19:02:27	d8721683-1904-4b96-bcb8-d2a1fd46b4cd	TypeError:Cannot read properties of undefined (reading 'username')

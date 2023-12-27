@@ -9,8 +9,8 @@ const verifyJWT = (req, res, next) => {
   const token = authHeader.split(" ")[1];
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
     if (err) return res.sendStatus(403); //invalid token
-    req.user = decoded.userInfo.username;
-    req.roles = decoded.userInfo.roles;
+    req.user = decoded.UserInfo.username;//LOOK INTO
+    req.roles = decoded.UserInfo.roles;
     next();
   });
 };
