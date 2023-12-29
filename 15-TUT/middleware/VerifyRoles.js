@@ -1,7 +1,10 @@
+//use spread operator, it allows as many arguments as needed
 const verifyRoles =
   (...allowedRoles) =>
   (req, res, next) => {
-    if (!req?.roles) return res.sendStatus(401);
+    if (!req?.roles){
+      return res.sendStatus(401);
+    } 
     const rolesArray = [...allowedRoles];
     console.log(rolesArray);
     console.log(req.roles);

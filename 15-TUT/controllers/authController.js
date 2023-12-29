@@ -7,7 +7,7 @@ const handleLogin = async (req, res) => {
   if (!user || !pwd) {
     return res
       .status(400)
-      .json({ message: "usename and password are required" });
+      .json({ message: "username and password are required" });
   }
   //find the user
   const foundUser = await User.findOne({username:user}).exec();
@@ -47,7 +47,7 @@ const handleLogin = async (req, res) => {
     });
     return res.json({ accessToken });
   } else {
-    return res.sendStatus(401);
+    return res.status(401).json({message:"incorrect password"});
   }
 };
 
