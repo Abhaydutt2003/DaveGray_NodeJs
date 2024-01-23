@@ -1,11 +1,11 @@
-
+import Register from "./Register";
 
 function App() {
-  return(
+  return (
     <main className="App">
-      
+      <Register></Register>
     </main>
   );
 }
 
-export default App
+export default App;
