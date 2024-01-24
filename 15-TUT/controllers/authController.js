@@ -21,6 +21,7 @@ const handleLogin = async (req, res) => {
      * we will not use the password as the payload , will hurt the security
      * Also , there is no need to send the roles in the refresh token,it is only to get the refresh token
      */
+    const roles = Object.values(foundUser.roles).filter(Boolean);
     const accessToken = jwt.sign(
       {
         UserInfo: {
@@ -44,8 +45,9 @@ const handleLogin = async (req, res) => {
     res.cookie("jwt", refreshToken, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
+      sameSite:'None'
     });
-    return res.json({ accessToken });
+    return res.json({roles,accessToken });
   } else {
     return res.status(401).json({message:"incorrect password"});
   }

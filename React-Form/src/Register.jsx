@@ -90,7 +90,7 @@ const Register = () => {
     } catch (error) {
       if (!error?.response) {
         setErrMsg("No server response");
-      } else if (error.response?.status == 409) {
+      } else if (error.response?.status == 409) {//409 means conflict
         setErrMsg("Username Taken");
       } else {
         setErrMsg("Registration Failed");

@@ -1,6 +1,7 @@
 {
   "name": "-react-form",
   "private": true,
+  "proxy": "http://localhost:3500",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

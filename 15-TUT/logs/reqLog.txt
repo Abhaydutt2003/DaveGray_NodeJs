@@ -478,3 +478,12 @@
 20240119	01:19:59	3705715c-5a9d-4561-9a71-a8e0a6aadb6d	POST	undefined	/auth
 20240119	01:22:04	b9df9ad0-cf86-4b3f-8771-c829eae4616c	POST	undefined	/auth
 20240119	01:22:13	ac7066c3-eecc-4b0d-b3a8-43cfdefc6e4a	POST	undefined	/auth
+20240123	18:19:44	20f07803-9168-410d-b8d0-9c6ede9adc55	POST	http://localhost:5173	/register
+20240123	18:22:00	cb8032ac-9d6b-474c-a808-97507eb7a30e	POST	http://localhost:5173	/register
+20240123	18:22:11	5ebea614-1fcc-4c63-9386-80c4862c087c	POST	http://localhost:5173	/register
+20240124	11:53:45	10148f71-b9bc-4a18-90b7-27a3f4a6ed10	POST	undefined	/auth
+20240124	17:33:07	0ef8b83b-e19c-4f3b-83c5-5ee5d74aa16a	POST	http://localhost:5173	/auth
+20240124	17:34:02	4a689c01-1d56-48b8-b0e2-5b95e3876351	POST	http://localhost:5173	/auth
+20240124	17:35:11	d3f71783-5aa0-42a5-a455-cd9e550d20fe	POST	http://localhost:5173	/auth
+20240124	17:35:19	a1f7beb4-c05d-4d4f-a1f4-31ef5f5f0c15	POST	http://localhost:5173	/auth
+20240124	17:36:47	1b3489f4-f7fa-4b37-b42f-1867d6b9dd13	POST	http://localhost:5173	/auth
