@@ -1,9 +1,10 @@
-import { useRef, useState, useEffect, useContext } from "react";
-import customFetch from "./api/axios";
-import AuthContext from "./Context/AuthProvider";
+import { useRef, useState, useEffect } from "react";
+import useAuth from '../hooks/useAuth';
+import customFetch from "../api/axios";
+import {Link,useNavigate,useLocation} from 'react-router-dom';
 
 const Login = () => {
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuth();
   const userRef = useRef();
   const errRef = useRef();
 
