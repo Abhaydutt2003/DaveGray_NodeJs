@@ -5,6 +5,11 @@ import {Link,useNavigate,useLocation} from 'react-router-dom';
 
 const Login = () => {
   const { setAuth } = useAuth();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+
   const userRef = useRef();
   const errRef = useRef();
 
@@ -12,7 +17,6 @@ const Login = () => {
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     userRef.current.focus();
@@ -41,7 +45,7 @@ const Login = () => {
       setAuth({ user, pwd, roles, accessToken });
       setUser("");
       setPwd("");
-      setSuccess(true);
+      navigate(from,{replace:true});
     } catch (error) {
       if (!error?.response) {
         setErrMsg("No Server Response");
@@ -57,17 +61,7 @@ const Login = () => {
   };
 
   return (
-    <>
-      {success ? (
-        <section>
-          <h1>You are logged in !</h1>
-          <br />
-          <p>
-            <a href="#">Go home</a>
-          </p>
-        </section>
-      ) : (
-        <section>
+    <section>
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
@@ -101,13 +95,10 @@ const Login = () => {
             Do not have a account?
             <br />
             <span className="line">
-              {/* paste the router link here */}
-              <a href="#">Sign Up</a>
+              <Link to = "/register">Sign Up</Link>
             </span>
           </p>
         </section>
-      )}
-    </>
   );
 };
 
