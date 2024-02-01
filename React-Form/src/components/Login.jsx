@@ -1,14 +1,14 @@
 import { useRef, useState, useEffect } from "react";
-import useAuth from '../hooks/useAuth';
+import useAuth from "../hooks/useAuth";
 import customFetch from "../api/axios";
-import {Link,useNavigate,useLocation} from 'react-router-dom';
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Login = () => {
   const { setAuth } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || "/";
 
   const userRef = useRef();
   const errRef = useRef();
@@ -45,7 +45,7 @@ const Login = () => {
       setAuth({ user, pwd, roles, accessToken });
       setUser("");
       setPwd("");
-      navigate(from,{replace:true});
+      navigate(from, { replace: true }); //replace:true, because now the user will not naviagte back to the login page again
     } catch (error) {
       if (!error?.response) {
         setErrMsg("No Server Response");
@@ -62,43 +62,43 @@ const Login = () => {
 
   return (
     <section>
-          <p
-            ref={errRef}
-            className={errMsg ? "errmsg" : "offscreen"}
-            aria-live="assertive"
-          >
-            {errMsg}
-          </p>
-          <h1> Sign In</h1>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              id="username"
-              ref={userRef}
-              autoComplete="off"
-              onChange={(event) => setUser(event.target.value)}
-              value={user}
-              required
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              onChange={(event) => setPwd(event.target.value)}
-              value={pwd}
-              required
-            />
-            <button>Sign In</button>
-          </form>
-          <p>
-            Do not have a account?
-            <br />
-            <span className="line">
-              <Link to = "/register">Sign Up</Link>
-            </span>
-          </p>
-        </section>
+      <p
+        ref={errRef}
+        className={errMsg ? "errmsg" : "offscreen"}
+        aria-live="assertive"
+      >
+        {errMsg}
+      </p>
+      <h1> Sign In</h1>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          ref={userRef}
+          autoComplete="off"
+          onChange={(event) => setUser(event.target.value)}
+          value={user}
+          required
+        />
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          onChange={(event) => setPwd(event.target.value)}
+          value={pwd}
+          required
+        />
+        <button>Sign In</button>
+      </form>
+      <p>
+        Do not have a account?
+        <br />
+        <span className="line">
+          <Link to="/register">Sign Up</Link>
+        </span>
+      </p>
+    </section>
   );
 };
 

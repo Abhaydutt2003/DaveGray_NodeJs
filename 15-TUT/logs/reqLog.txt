@@ -487,3 +487,7 @@
 20240124	17:35:11	d3f71783-5aa0-42a5-a455-cd9e550d20fe	POST	http://localhost:5173	/auth
 20240124	17:35:19	a1f7beb4-c05d-4d4f-a1f4-31ef5f5f0c15	POST	http://localhost:5173	/auth
 20240124	17:36:47	1b3489f4-f7fa-4b37-b42f-1867d6b9dd13	POST	http://localhost:5173	/auth
+20240201	06:51:26	e909d0e5-b02c-40e7-bfa6-84f7d2e10685	POST	http://localhost:5173	/register
+20240201	06:55:04	164c5f7c-8f46-42de-a0d8-4a421e06961d	POST	http://localhost:5173	/auth
+20240201	06:58:38	1daa57be-7ae5-4bbe-ab8c-9b52bc22ebbb	POST	http://localhost:5173	/auth
+20240201	06:59:19	e0279451-f830-41ea-9fb3-5b405b40d7c0	POST	http://localhost:5173	/auth
