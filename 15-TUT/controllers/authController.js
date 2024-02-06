@@ -42,11 +42,14 @@ const handleLogin = async (req, res) => {
     const result = await foundUser.save();
     console.log(result);
     //set security:true in production
+    //the httpOnly cookies cannot be accessed by javascript. 
+    //that means that cookies cannot be accessed by client side scripts
     res.cookie("jwt", refreshToken, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
-      sameSite:'None'
-    });
+      sameSite:'none',
+      secure:true
+    },);
     return res.json({roles,accessToken });
   } else {
     return res.status(401).json({message:"incorrect password"});
