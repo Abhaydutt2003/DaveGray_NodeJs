@@ -11,7 +11,7 @@ const useAxiosPrivate = ()=>{
         //this interceptor will be used when making requests, that means when in 
         //the start we recieve the access token.
         const requestIntercept = axiosPrivate.interceptors.request.use((config)=>{
-            if(config.headers['Authorization']){
+            if(!config.headers['Authorization']){
                 config.headers['Authorization'] = `Bearer ${auth?.accessToken}`;
             }
             return config;
@@ -28,6 +28,7 @@ const useAxiosPrivate = ()=>{
             if(error?.response?.status == 403 && !prevRequest?.sent){
                 prevRequest.sent = true;
                 const newAccessToken = await refresh();
+                console.log('error did happen now the new AccessToken is ', newAccessToken);
                 prevRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
                 return axiosPrivate(prevRequest);
             }  

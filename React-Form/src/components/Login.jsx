@@ -9,6 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  //the above stores from where the user has arrived to the login form (can be a redirect)
 
   const userRef = useRef();
   const errRef = useRef();
