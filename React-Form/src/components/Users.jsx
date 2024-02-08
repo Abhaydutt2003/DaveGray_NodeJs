@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 import useAxiosPrivate from "../hooks/useAxiosPrivate.jsx";
 import {useNavigate,useLocation} from 'react-router-dom';
 
@@ -9,37 +9,35 @@ const User = ()=>{
     const axiosPrivate = useAxiosPrivate();
     const navigate = useNavigate();
     const location = useLocation();
-    //TODO change the logic to get emplyees in the useEffect, using useRef might make the code better
-    //the code below works perfectly when we do not use the REACT.strictMode
-    // useEffect to get the users during the initial render
+    const isMounted = useRef(true);
+    //the intial render , fetch the employees from the backend
     useEffect(()=>{
-        console.log('In use Effect');
-        let isMounted = true;
-        //use the AbortController to abort any request
+        console.log('component is mounting');
+        isMounted.current = true;
+        //use the abort controller to abort any request
         const controller = new AbortController();
         const getUsers = async()=>{
             try{
                 //axios now accepts signal , which can be used to abort the request
-                const response = await axiosPrivate.get('/employees',{
-                    signal:controller.signal
-                });
-                //axios has response data in the data field
+                const response = await axiosPrivate.get('/employees',{signal:controller.signal});
                 console.log(response.data);
-                isMounted && setUsers(response.data);
+                isMounted.current && setUsers(response.data);
             }catch(error){
                 console.log(error);
-                //this is the condition when even the refresh token is expired, and we need to create a new refreshToken 
-                navigate('/login',{state:{from:location},replace:true});
+                //we might get canceled error because apparantly react uses useEffect two times 
+                //that is why there is a canceled error exception,we can get rid of it by removing the 
+                //React.StrictMode, or simply checking if we have got the 403 error
+                if(error.response?.status == '403'){
+                    //will enter here when the refresh token has expired too
+                    navigate('/login',{state:{from:location},replace:true});
+                }
             }
         }
         getUsers();
-        //cleanup function , the above code causes side effects, while this code
-        //works when the items in the dependency array change, in this case, 
-        //whenever the components unmounts
-        //the cleanup function also works with each re-render, that is why there is a issue when using with strictMode
-        return ()=>{
-            console.log('unmouintin');
-            isMounted = false;
+        //write the cleanup function for when the component unmounts
+        return()=>{
+            console.log('component is unmounting');
+            isMounted.current = false;
             controller.abort();
         }
     },[]);

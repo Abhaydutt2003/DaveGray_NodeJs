@@ -10,6 +10,7 @@ import {
   Lounge,
   LinkPage,
   RequireAuth,
+  PersistLogin,
 } from "./components";
 
 import { Routes, Route } from "react-router-dom";
@@ -33,21 +34,25 @@ let App = () => {
           element={<Unauthorized></Unauthorized>}
         ></Route>
         {/* protected routes */}
-        <Route element={<RequireAuth allowedRoles={[ROLES.User]}></RequireAuth>}>
-          <Route path="/" element={<Home></Home>}></Route>
-        </Route>
-        <Route
-          element={<RequireAuth allowedRoles={[ROLES.Editor]}></RequireAuth>}
-        >
-          <Route path="editor" element={<Editor></Editor>}></Route>
-        </Route>
-        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-          <Route path="admin" element={<Admin />} />
-        </Route>
-        <Route
-          element={<RequireAuth allowedRoles={[ROLES.Editor, ROLES.Admin]} />}
-        >
-          <Route path="lounge" element={<Lounge />} />
+        <Route element={<PersistLogin></PersistLogin>}>
+          <Route
+            element={<RequireAuth allowedRoles={[ROLES.User]}></RequireAuth>}
+          >
+            <Route path="/" element={<Home></Home>}></Route>
+          </Route>
+          <Route
+            element={<RequireAuth allowedRoles={[ROLES.Editor]}></RequireAuth>}
+          >
+            <Route path="editor" element={<Editor></Editor>}></Route>
+          </Route>
+          <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+            <Route path="admin" element={<Admin />} />
+          </Route>
+          <Route
+            element={<RequireAuth allowedRoles={[ROLES.Editor, ROLES.Admin]} />}
+          >
+            <Route path="lounge" element={<Lounge />} />
+          </Route>
         </Route>
         {/* catch all the missing pages with *  */}
         <Route path="*" element={<Missing></Missing>}></Route>

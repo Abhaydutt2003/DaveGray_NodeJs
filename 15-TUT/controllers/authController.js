@@ -30,8 +30,10 @@ const handleLogin = async (req, res) => {
         },
       },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "50s" }
+      { expiresIn: "30s" }
     );
+    //the expiration of the refershToken will determine when the user will 
+    //have to login again
     const refreshToken = jwt.sign(
       { username: foundUser.username },
       process.env.REFRESH_TOKEN_SECRET,
