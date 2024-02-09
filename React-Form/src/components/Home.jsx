@@ -1,16 +1,15 @@
-import { useContext } from "react";
-import AuthContext from "../Context/AuthProvider";
 import { useNavigate,Link } from "react-router-dom";
-
+import useLogout from "../hooks/useLogout";
 
 const Home = ()=>{
-    const {setAuth} = useContext(AuthContext);
     const navigate = useNavigate();
+    const logout = useLogout();
 
-    const logout = async()=>{
+
+    const signOut = async()=>{
         //if i want to logout from a lot of places, make a new component to do so
         //in this case ill just put the logic to logout here
-        setAuth({});
+        await logout();
         navigate('/linkpage');
     }
     
@@ -28,7 +27,7 @@ const Home = ()=>{
             <br />
             <Link to="/linkpage">Go to the link page</Link>
             <div className="flexGrow">
-                <button onClick={logout}>Sign Out</button>
+                <button onClick={signOut}>Sign Out</button>
             </div>
         </section>
     )

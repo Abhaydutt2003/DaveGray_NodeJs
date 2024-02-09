@@ -18,7 +18,7 @@ const PersistLogin = () => {
         setIsLoading(false);
       }
     };
-    auth?.accessToken ? verifyRefreshToken() : setIsLoading(false);
+    !auth?.accessToken ? verifyRefreshToken() : setIsLoading(false);
   }, []);
 
   useEffect(() => {
@@ -30,3 +30,7 @@ const PersistLogin = () => {
 };
 
 export default PersistLogin;
+
+//logic behind -> the persist login component will send the refreshToken request through the
+//useRefrehToken component, since the refresh token will persist in the browser, we will set the 
+//new accessToken in the auth state.
