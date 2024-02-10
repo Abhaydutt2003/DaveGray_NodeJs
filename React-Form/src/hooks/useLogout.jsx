@@ -8,6 +8,8 @@ const useLogout = ()=>{
     //is removed from the browser
     const logout = async()=>{
         setAuth({});
+        //remove the presist state from the localStorage
+        localStorage.removeItem('persist');
         try{
             await customFetch.get('/logout',{
                 withCredentials:true

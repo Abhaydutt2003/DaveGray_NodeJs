@@ -4,7 +4,7 @@ import customFetch from "../api/axios";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Login = () => {
-  const { setAuth } = useAuth();
+  const { setAuth,persist,setPersist } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -61,6 +61,17 @@ const Login = () => {
     }
   };
 
+
+  const togglePersist = ()=>{
+    setPersist((prev)=>{
+      return !prev;
+    })
+  }
+
+  useEffect(()=>{
+    localStorage.setItem('persist',persist);
+  },[persist]);
+
   return (
     <section>
       <p
@@ -91,6 +102,10 @@ const Login = () => {
           required
         />
         <button>Sign In</button>
+        <div className="persistCheck">
+          <input type = "checkbox" id = "persist" onChange={togglePersist} checked = {persist}></input>
+          <label htmlFor="persist">Trust This Device</label>
+        </div>
       </form>
       <p>
         Do not have a account?
